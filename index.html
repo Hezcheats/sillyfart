@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Silly cat</title>
+  <style>
+    #image {
+      width: 200px;
+      height: 200px;
+      object-fit: contain;
+      margin: 0 auto;
+      display: block;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+  </style>
+</head>
+<body style="background-image: url('https://example.com/background.jpg');">
+  <div>
+    <img id="image" src="https://i.ibb.co/J2CVG8X/meow.jpg" onclick="changeImage()">
+  </div>
+  <script>
+    function changeImage() {
+      var images = ["https://i.ibb.co/zZ7tPWh/logo.png"];
+      var currentImage = document.getElementById("image");
+      var originalSrc = currentImage.src; // Store the original image URL
+      var currentIndex = images.indexOf(originalSrc.split("/").pop());
+      var nextIndex = (currentIndex + 1) % images.length;
+      currentImage.src = images[nextIndex];
+      var audio = new Audio('https://audio.jukehost.co.uk/cvHLTulS4jhCmHGSI4pvqX2XZUWQs8Zw'); // Replace 'sound.mp3' with your sound file
+      audio.play(100);
+      setTimeout(function() {
+        currentImage.src = originalSrc; // Reset to the original image URL
+      }, 2000);
+    }
+  </script>
+  <h1>don't click the cat!!</h1>
+</body>
+</html>
